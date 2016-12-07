@@ -235,7 +235,7 @@
       "name": "[parameters('logicAppName')]",
       "type": "Microsoft.Logic/workflows",
       "apiVersion": "2015-02-01-preview",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "dependsOn": [
         "[concat('Microsoft.Web/serverfarms/', parameters('serverFarmName'))]"
       ],
