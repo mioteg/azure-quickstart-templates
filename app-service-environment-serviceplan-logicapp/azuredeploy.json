@@ -91,6 +91,38 @@
         "description": "The number of VM to use for Worker Pool 3"
       }
     },
+    "location": {
+      "type": "string",
+      "allowedValues": [
+        "Central US",
+        "East US",
+        "East US 2",
+        "North Central US",
+        "South Central US",
+        "West Central US",
+        "West US",
+        "West US 2",
+        "Canada Central",
+        "Canada East",
+        "Brazil South",
+        "Germany Central",
+        "Germany Northeast",
+        "UK West",
+        "UK South",
+        "North Europe",
+        "West Europe",
+        "Australia East",
+        "Australia Southeast",
+        "Japan East",
+        "Japan West",
+        "Central India",
+        "South India",
+        "West India",
+        "East Asia",
+        "Southeast Asia"
+      ],
+      "metadata": { "description": "The Azure region to deploy to. WARNING! Must match VNET location." }
+    },
     "vnetName": {
       "type": "string",
       "metadata": {
@@ -150,7 +182,7 @@
       "apiVersion": "2014-11-01",
       "name": "[parameters('environmentName')]",
       "type": "Microsoft.Web/hostingEnvironments",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "dependsOn": [ ],
       "properties": {
         "Name": "[parameters('environmentName')]",
@@ -172,7 +204,6 @@
             "workerCount": "[parameters('worker3count')]"
           }
         ],
-        "location": "[resourceGroup().location]",
         "MultiSize": "[parameters('frontendSize')]",
         "MultiRoleCount": "[parameters('frontendCount')]",
         "VNETName": "[parameters('VNETName')]",
