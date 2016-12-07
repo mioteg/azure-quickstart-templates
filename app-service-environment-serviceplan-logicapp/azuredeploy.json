@@ -214,7 +214,7 @@
     {
       "name": "[parameters('serverFarmName')]",
       "type": "Microsoft.Web/serverfarms",
-      "location": "[resourceGroup().location]",
+      "location": "[parameters('location')]",
       "apiVersion": "2014-06-01",
       "dependsOn": [
         "[concat('Microsoft.Web/hostingEnvironments/', parameters('environmentName'))]"
